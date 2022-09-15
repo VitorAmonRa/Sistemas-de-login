@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import '../interface';
-import { User } from '../interface';
+import { Navigate} from 'react-router-dom';
+import { ProtectedLayout } from '../../components/ProtectedLayout';
+import { useAuth } from '../../contexts/useAuth';
+import { LoginRequest } from '../../contexts/util';
 
 import { 
   Container,
@@ -9,14 +11,32 @@ import {
 } from './styles';
 
 export const LoginPage: React.FC = () => {
+  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   
   const handleSubmit = (e: { preventDefault: () => void; }) =>{
     e.preventDefault();
     console.log("submit", {email, password})
-    
   };
+
+  const Login = () => {
+    const auth = useAuth();
+
+    async function handleLogin (values:{email:string, password:string}) {
+      
+      try {
+        await auth?.authenticate(values.email, values.password);
+
+      } catch (error) {
+        
+      }
+    }
+
+  }
+  /* eve.holt@reqres.in
+    cityslicka
+  */
   
   return(
     <Container>
@@ -30,7 +50,7 @@ export const LoginPage: React.FC = () => {
           <label htmlFor="password"> Password </label>
           <input type="password" name="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
         </Field>
-        <button type="submit"> Entrar </button>
+        <button type="submit" onClick={Login}> Entrar </button>
       </Form>
     </Container>
   )
