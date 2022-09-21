@@ -27,10 +27,18 @@ export const Container = styled.div`
       font-size:20px;
       font-weight: bold;
       margin: 20px;
-      width: 250px;
+      width: 50%;
       height:50px;
       background-color: #fff;
       border: 3px outset  #232C33;
       cursor: pointer;
+      :hover{
+        background-color: #232C33;
+        color: #fff;
+        border: 3px outset  #fff
+
+      }
     }
-}`
+  }
+  
+`;

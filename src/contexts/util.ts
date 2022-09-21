@@ -13,17 +13,16 @@ export const getUserLocalStorage = () =>{
     }
 
     const user = JSON.parse(json);
-
+    console.log(user);
     return user ?? null;
 }
 
 export async function LoginRequest (email:string, password:string){
     
     try {
-        const request = await Api.post("login", {email,password})
-        console.log(request.data);
+        const request = await Api.post('login', {email,password})
+
         return request.data;
-        
     } catch (error) {
         alert('nao deu')
         return null
