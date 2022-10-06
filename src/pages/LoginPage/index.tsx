@@ -1,4 +1,4 @@
-import React, { useState, MouseEvent } from 'react';
+import React, { useState, MouseEvent, useReducer } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/useAuth';
 import { 
@@ -11,6 +11,7 @@ export const LoginPage: React.FC = () => {
   
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(true);
   const auth = useAuth();
   const navigate = useNavigate();
   
@@ -24,8 +25,8 @@ export const LoginPage: React.FC = () => {
       console.log('fui clicado');
       try {
         await auth?.authenticate(values.email, values.password);
-        return  navigate("/");
-       
+        navigate("/") 
+
       } catch (error) {
         return alert('Erro')
       }
@@ -35,7 +36,8 @@ export const LoginPage: React.FC = () => {
     <Container>
       <Form onSubmit={handleSubmit}>
         <h1>Faça seu login aqui</h1>
-        <p>{String()}</p>
+        <p>eve.holt@reqres.in</p>
+        <p>cityslicka</p>
         <Field>
           <label htmlFor="email"> Email </label>
           <input type="email" name="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
