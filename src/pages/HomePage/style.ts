@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+
 export const Container = styled.div`
   display:flex;
   align-items: center;
@@ -32,9 +33,13 @@ export const Container = styled.div`
         font-weight: bold;
         width: 150px;
         height:50px;
-        background-color: #fff;
+        background-color: #232C33;
+        color: #fff;
         border: 3px outset  #232C33;
         cursor: pointer;
+        .icon{
+          font-size: 30px;
+        }
       }
     }
     .search-title{

@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
+
 import Global from '../../style/Global';
 import { useAuth } from '../../contexts/useAuth';
 
@@ -6,6 +7,8 @@ import {
   Container,
 } from './style';
 import { githubApi } from '../../services/githubApi';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCoffee, faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 
 interface Repository {
   full_name: string;
@@ -37,9 +40,6 @@ export const HomePage: React.FC = () => {
     loadData()
     console.log("Clicou")
   }
-/*     useEffect(() => {
-    },[handleSearch]) */
-  
 
   const handleClear = () => {
     setUserRepo("")
@@ -60,7 +60,7 @@ export const HomePage: React.FC = () => {
             <div>
               <div className='title'> 
                   <h1>Bem vindo a Home Page.</h1>
-                  <button type='button' onClick={() => Logout()}> Logout</button>
+                  <button type='button' onClick={() => Logout()}> <FontAwesomeIcon icon={faRightFromBracket} className='icon' /></button>
               </div>
               <div className='search-title'>
                 <h1>Github Repositorios</h1>
@@ -68,23 +68,25 @@ export const HomePage: React.FC = () => {
               <div className="search">
                 <h1>Procure o usuario aqui!</h1>
                 <input 
-                type="text" 
-                name='searchUser'
-                placeholder='Procure o Usuario Aqui'
-                value={userRepo}
-                onChange={(e) => setUserRepo(e.target.value)}
+                  type="text" 
+                  name='searchUser'
+                  placeholder='Procure o Usuario Aqui'
+                  value={userRepo}
+                  onChange={(e) => setUserRepo(e.target.value)}
                 />
+               
                 <button 
-                type='button' 
-                name='search'
-                onClick={() => handleSearch()}
-                >
-                   Procurar 
+                  type='button' 
+                  name='search'
+                  onClick={() => handleSearch()}
+                  >
+                    Procurar 
                 </button>
+               
                 <button
-                type='button'
-                name='clear'
-                onClick={() => handleClear()}
+                  type='button'
+                  name='clear'
+                  onClick={() => handleClear()}
                 >
                   Limpar
                 </button>

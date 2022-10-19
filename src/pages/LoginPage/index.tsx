@@ -4,14 +4,15 @@ import { useAuth } from '../../contexts/useAuth';
 import { 
   Container,
   Form,
-  Field
+  Field,
+  LoadingPage
 } from './styles';
 
 export const LoginPage: React.FC = () => {
   
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const auth = useAuth();
   const navigate = useNavigate();
   
@@ -24,12 +25,25 @@ export const LoginPage: React.FC = () => {
   async function LoginRequest (values:{email:string, password:string}) {
       console.log('fui clicado');
       try {
+        setLoading(true)
         await auth?.authenticate(values.email, values.password);
         navigate("/") 
 
       } catch (error) {
-        return alert('Erro')
+        setLoading(false)
+        alert('Erro')
+        navigate("/login")
       }
+    }
+
+    if(loading){
+      return(
+        <> 
+          <LoadingPage>
+            <h1>CARREGANDO....</h1>
+          </LoadingPage>
+        </>
+      )
     }
 
   return(
