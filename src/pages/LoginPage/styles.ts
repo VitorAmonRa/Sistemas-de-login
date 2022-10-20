@@ -6,7 +6,7 @@ export const Container = styled.div`
   justify-content: center;
   width: 100%;
   height: 100vh;
-  background-color: #232C33;
+  background-color: #4F83E3;
 `;
 
 export const Form = styled.form`
@@ -19,7 +19,7 @@ export const Form = styled.form`
   height: 400px;
   margin: 0 auto;
   border-radius: 10px;
-  background-color: #DADFF7;
+  background-color: #C0C2C4;
   border: 5px solid  #131313;
     h1{
       padding: 10px 0 ;
@@ -60,7 +60,7 @@ export const LoadingPage = styled.div`
   max-height: 100vh;
   width:100%;
   height:100vh;
-  background-color: #232C33;
+  background: linear-gradient(to left, #0B2047, #19489F, #4F83E3 );
   h1{
     display: flex;
     justify-content:center;

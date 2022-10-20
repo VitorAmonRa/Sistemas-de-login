@@ -6,14 +6,13 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  background-color: #232C33;
   div{
     display:flex;
     flex-direction:column;
     align-items: center;
     width:100%;
     margin: 0 auto;
-    background-color: #DADFF7;
+    background-color: #C0C2C4;
     
     .title{
       display: flex;
@@ -23,7 +22,7 @@ export const Container = styled.div`
       justify-content: space-between;
       padding: 1rem;
       color: white;
-      background-color: #232C33;
+      background-color: #4F83E3;
       h1{
         font-size: 30px;
         margin: 2rem 0;
@@ -33,9 +32,9 @@ export const Container = styled.div`
         font-weight: bold;
         width: 150px;
         height:50px;
-        background-color: #232C33;
+        background-color: #4F83E3;
         color: #fff;
-        border: 3px outset  #232C33;
+        border: 3px outset  #4F83E3;
         cursor: pointer;
         .icon{
           font-size: 30px;
@@ -59,7 +58,7 @@ export const Container = styled.div`
       justify-content: center;
       height: 10vh;
       border: none;
-      border-bottom: 3px solid black; 
+      /* border-bottom: 3px solid black;  */
       h1{
         font-size: 20px
       }
@@ -70,7 +69,7 @@ export const Container = styled.div`
         width: 350px;
         height:40px;
         background-color: #fff;
-        border: 3px outset  #232C33;
+        border: 3px outset  #000;
         ::placeholder{
           font-size: 18px;
           padding: 5px;
@@ -83,23 +82,25 @@ export const Container = styled.div`
         width: 80px;
         height:50px;
         background-color: #fff;
-        border: 3px outset  #232C33;
+        border: 3px outset  #000;
         cursor: pointer;
       }
     }
-    ul{
-      display:flex;
+    .repos{
+      display: flex;
       flex-direction: column;
+      width: 50%;
+      ul{
+      display:flex;
+      flex-direction: row;
       justify-content: center;
-      width:50%;
-      
-      align-items: center;
       margin: 1rem auto;
+      flex-wrap: wrap;
       li{
         display: flex;
         align-items: center;
         padding: 10px ;
-        border: 2px solid #232C33;
+        border: 1px dashed #000;
         text-decoration: none;
         list-style: none;
         width:51%;
@@ -115,6 +116,8 @@ export const Container = styled.div`
         }
       }
     }
+    }
+
     .empty-search{
       display:flex;
       align-items: center;

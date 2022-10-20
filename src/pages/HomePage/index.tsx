@@ -71,6 +71,7 @@ export const HomePage: React.FC = () => {
                   type="text" 
                   name='searchUser'
                   placeholder='Procure o Usuario Aqui'
+                  
                   value={userRepo}
                   onChange={(e) => setUserRepo(e.target.value)}
                 />
@@ -92,18 +93,20 @@ export const HomePage: React.FC = () => {
                 </button>
               </div>
               { repositories.length > 0 ? (
-                <ul>
-                  {repositories.map(repo => {
-                    return (
-                      <li key={repo.full_name}>
-                      <h1> 
-                        {repo.full_name.substring(0, repo.full_name.indexOf('/'))} 
-                      </h1>
-                      <p> - {repo.name} </p>
-                      </li>
-                      )
-                    })}
-                  </ul> 
+                <div className='repos'>
+                  <ul>
+                    {repositories.map(repo => {
+                      return (
+                        <li key={repo.full_name} >
+                        <h1> 
+                          {repo.full_name.substring(0, repo.full_name.indexOf('/'))} 
+                        </h1>
+                        <p> - {repo.name} </p>
+                        </li>
+                        )
+                      })}
+                    </ul> 
+                  </div>
               ) : (
                 <div className='empty-search'>
                   <p> Sem repositorios encontrados!</p>
